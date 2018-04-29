@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- bootstrap-responsive -->
+<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">  
+<!--// bootstrap-responsive -->
+
+<style type="text/css">
+
+p.egik {font-style:italic;}
+
+</style>
+
+<script>
+ function kayit_kontrol(){
+	f = document.forms['kayit_form'];
+	uyari_div= document.getElementById('uyari_div'); 
+	var uyari = '';
+	var hatalar = '';
+	if (f.icerik.value.trim() == '' || f.icerik.value.length<300) hatalar = hatalar + '<font color="red" size="2"><bold>- En az 300 karekterlik yazı giriniz.<br></font>';
+	if (hatalar!='') {
+		uyari_div.visible=true;
+		uyari_div.innerHTML=hatalar;		
+		return false;
+	} else {return true;}
+ }
+</script>
+</head>
+
+<body background="images/s3.jpg">
+<p style="color:white;font-family:tahoma;font-weight:bold;font-size:125%"> Hoş Geldiniz Pınar Hanım   💁‍ </p> 
+<div class="container padTop20"> 
+<div class="row padTop20">
+<div class="col-md-6">
+	
+	<form method="post" name="guncelle_form" id="guncelle_form" onsubmit="return kayit_kontrol();" action="#"> 
+			<div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        ETKİNLİK GÜNCELLE
+                    </h3>
+					
+                </div>
+				<div class="panel-body">
+                    <ul class="media-list">
+						<li class="media">
+                            <div class="media-body">
+							   <p>
+							     <input type="date" name="tarih" value="" placeholder="Tarih" class="form-control" required>
+							   </p>
+                               <p>
+                                   <input type="text" name="baslik" value="" placeholder="Başlık" class="form-control" required>
+                                   <input type="text" name="baslik" value="" placeholder="Başlık" class="form-control" required>
+                                </p>
+                                <p>
+                                    <textarea  name="icerik" placeholder="İçerik" class="form-control" style="height:100px;" required></textarea>
+                                </p>
+								<p> 
+									<input type="button" value="Geri" class="btn btn-danger" onClick="parent.location.href='ulketntm.html'">
+									<input type="submit" value="Güncelle" name="guncelle" id="guncelle" class="btn btn-success">
+								</p>
+                            </div>							
+                        </li>
+                    </ul>
+                   
+                </div> 
+			</div>
+     </form>
+</div>
+</div>
+</div>
+<br>
+
+</html>
+</body>

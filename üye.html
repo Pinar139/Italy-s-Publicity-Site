@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- bootstrap-responsive -->
+<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">  
+<!--// bootstrap-responsive -->
+
+
+<script>
+ function kayit_kontrol(){
+	f = document.forms['kayit_form'];
+	uyari_div= document.getElementById('uyari_div'); 
+	var uyari = '';
+	var hatalar = '';
+	var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	if (f.kadi.value.trim() == '' || f.parola.value == null) hatalar = hatalar + '<font color="red" size="2"><bold>-Kullanıcı Adı alanını boş bırakmayınız.<br></font>';
+    if (f.mail.value.trim() == '' || reg.test(f.mail.value) == false) hatalar = hatalar + '<font color="red" size="2"><bold>- E-posta adresinizi düzgün giriniz.<br></font>';
+	if (f.parola.value.trim() == '' || f.parola.value.length<4) hatalar = hatalar + '<font color="red" size="2"><bold>- En az 4 karekterli parola giriniz.<br></font>';
+	if (hatalar!='') {
+		uyari_div.visible=true;
+		uyari_div.innerHTML=hatalar;		
+		return false;
+	} else {return true;}
+ }
+</script>
+</head>
+
+<body background="images/s3.jpg">
+<div class="container padTop20"> <!-- SLİDER ÇUBUĞU -->
+<div class="row" align="center">
+<div class="panel-body" id="login" style="width:250px">      
+	<form method="post" name="kayit_form" id="kayit_form" onsubmit="return kayit_kontrol();" action="#"> 
+      	  
+		  <br><br><br><br><br>
+		 <font size=”8″ face=”Times New Roman” color=”#FFFFFF”> REGİSTER </font>
+		  <div class="uyari_div" id="uyari_div"></div> 
+		  
+          <p> <input type="text" name="kadi" value="" class="form-control" placeholder="Kullanıcı Adı"></p>
+          <p> <input type="text" name="mail" value="" class="form-control" placeholder="E-posta"></p>		
+	       <div class="form-group password-strength"> 
+			<p><input type="password" name="parola" class="form-control" value="" placeholder="Parola"></p>
+			</div>
+	   	    
+		<p class="submit"><input type="reset" name="vazgec" value="Vazgeç" class="btn btn-danger"> 
+		<input type="submit" name="kaydet" value="Kaydet" class="btn btn-success"> </p>
+		<input type="submit" name="Log" onClick="location.href='giris.html'" value="Login" class="btn btn-info"> </p>
+      </form>
+</div>
+</div>
+</div>
+<br>
+
+</html>
+</body>
